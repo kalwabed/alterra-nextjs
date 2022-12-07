@@ -7,6 +7,8 @@ const ClubsPage = () => {
 
   const toChelsea = () => {
     router.push('/clubs/chelsea')
+    // atau
+    // router.replace('/clubs/chelsea')
   }
 
   return (
