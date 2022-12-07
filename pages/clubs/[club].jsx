@@ -1,7 +1,10 @@
-import React from 'react'
+import { useRouter } from 'next/router'
 
 const ClubDetailPage = () => {
-  return <div>ClubDetailPage</div>
+  const router = useRouter()
+  const club = router.query.club
+
+  return <div>Detail {club}</div>
 }
 
 export default ClubDetailPage
