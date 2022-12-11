@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router'
 import React from 'react'
 
+import styles from './card.module.css'
+
 const MeetupCard = props => {
   const { imageUrl, title, description, address, id } = props
   const router = useRouter()
@@ -10,12 +12,14 @@ const MeetupCard = props => {
   }
 
   return (
-    <div>
-      <img src={imageUrl} width={100} height={200} alt="alt img" />
-      <h4>{title}</h4>
-      <address>{address}</address>
+    <div className={styles.cardWrapper}>
+      <img src={imageUrl} width={1000} height={300} alt="alt img" />
+      <h4 className={styles.h4}>{title}</h4>
+      <address className={styles.address}>{address}</address>
 
-      <button onClick={toMeetupDetail}>Detail</button>
+      <button className={styles.btn} onClick={toMeetupDetail}>
+        Detail
+      </button>
     </div>
   )
 }

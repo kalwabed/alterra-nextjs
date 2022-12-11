@@ -1,0 +1,66 @@
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1024px;
+  height: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  background-color: hsl(151, 10.6%, 95.2%);
+  border: 1px solid hsl(152, 7.2%, 88.4%);
+  color: hsl(155, 3%, 43%);
+}
+
+.h4 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+}
+
+.address {
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  align-items: center;
+  width: 100%;
+  max-width: 100px;
+  height: 2rem;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(152, 7.2%, 88.4%);
+  background-color: hsl(155, 3.5%, 55.5%);
+  color: hsl(153, 6.7%, 85.3%);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 250ms ease-in-out;
+}
+
+.btn:hover {
+  background-color: hsl(155, 3%, 43%);
+}
+
+.sage {
+  --sage1: hsl(155, 30%, 98.8%);
+  --sage2: hsl(150, 16.7%, 97.6%);
+  --sage3: hsl(151, 10.6%, 95.2%);
+  --sage4: hsl(151, 8.8%, 93%);
+  --sage5: hsl(151, 7.8%, 90.8%);
+  --sage6: hsl(152, 7.2%, 88.4%);
+  --sage7: hsl(153, 6.7%, 85.3%);
+  --sage8: hsl(154, 6.1%, 77.5%);
+  --sage9: hsl(155, 3.5%, 55.5%);
+  --sage10: hsl(154, 2.8%, 51.7%);
+  --sage11: hsl(155, 3%, 43%);
+  --sage12: hsl(155, 24%, 9%);
+}
