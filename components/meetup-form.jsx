@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import styles from './meetup-form.module.css'
+
 const MeetupForm = ({ onAddMeetup }) => {
   const titleRef = React.useRef(null)
   const imageUrlRef = React.useRef(null)
@@ -20,30 +22,40 @@ const MeetupForm = ({ onAddMeetup }) => {
   }
 
   return (
-    <form onSubmit={handleOnSubmit}>
-      <div>
-        <div>
-          <label htmlFor="title">Judul</label>
-          <input ref={titleRef} type="text" id="title" />
+    <form onSubmit={handleOnSubmit} className={styles.form}>
+      <div className={styles.formWrapper}>
+        <div className={styles.formControl}>
+          <label htmlFor="title" className={styles.label}>
+            Judul
+          </label>
+          <input ref={titleRef} type="text" id="title" className={styles.input} />
         </div>
 
-        <div>
-          <label htmlFor="image">Image URL</label>
-          <input ref={imageUrlRef} type="url" id="image " />
+        <div className={styles.formControl}>
+          <label htmlFor="image" className={styles.label}>
+            Image URL
+          </label>
+          <input ref={imageUrlRef} type="url" id="image" className={styles.input} />
         </div>
 
-        <div>
-          <label htmlFor="address">Alamat</label>
-          <input ref={addressRef} type="text" id="address" />
+        <div className={styles.formControl}>
+          <label htmlFor="address" className={styles.label}>
+            Alamat
+          </label>
+          <input ref={addressRef} type="text" id="address" className={styles.input} />
         </div>
 
-        <div>
-          <label htmlFor="description">Deskripsi</label>
-          <textarea ref={descriptionRef} id="description" cols="30" rows="10"></textarea>
+        <div className={styles.formControl}>
+          <label htmlFor="description" className={styles.label}>
+            Deskripsi
+          </label>
+          <textarea ref={descriptionRef} id="description" cols="30" rows="5" className={styles.textarea}></textarea>
         </div>
       </div>
 
-      <button type="submit">Tambahkan</button>
+      <button type="submit" className={styles.btn}>
+        Tambahkan
+      </button>
     </form>
   )
 }
