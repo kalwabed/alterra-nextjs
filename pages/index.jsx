@@ -4,22 +4,17 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
-  const [data, setData] = useState(null)
-  const [isLoading, setLoading] = useState(false)
+export const getStaticProps = async () => {
+  const res = await fetch('https://jsonplaceholder.typicode.com/users')
+  const users = await res.json()
 
-  useEffect(() => {
-    setLoading(true)
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(res => res.json())
-      .then(data => {
-        setData(data)
-        setLoading(false)
-      })
-  }, [])
+  return {
+    props: { users }
+  }
+}
 
-  if (isLoading) return <p>Loading...</p>
-  if (!data) return <p>No profile data</p>
+export default function Home(props) {
+  const { users } = props
 
   return (
     <div className={styles.container}>
@@ -29,15 +24,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>With useEffect</h1>
-      <Link href="/swr">Dengan SWR</Link>
+      <h1>Users</h1>
       <div className={styles.grid}>
-        {data &&
-          data.map(user => (
-            <div key={user.id} className={styles.card}>
-              <p className={styles.title}>{user.name}</p>
-            </div>
-          ))}
+        {users.map(user => (
+          <Link key={user.id} href={`/${user.id}`} className={styles.card}>
+            <p className={styles.title}>{user.name}</p>
+          </Link>
+        ))}
       </div>
     </div>
   )
