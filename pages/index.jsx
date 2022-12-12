@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/users')
   const users = await res.json()
 
