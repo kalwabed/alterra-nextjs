@@ -8,15 +8,22 @@ const file = join(__dirname, 'db.json')
 const adapter = new JSONFile(file)
 const db = new Low(adapter)
 
-export default async function handler(req, res) {
-  await db.read()
+async function insertMeetup(meetupData) {
   db.data ||= { meetups: [] }
 
   db.data.meetups.push({
     id: randomBytes(7).toString('base64url'),
-    ...req.body
+    ...meetupData
   })
   await db.write()
+}
 
-  res.status(200).json(db.data)
+export default async function handler(req, res) {
+  await db.read()
+  if (req.method === 'POST') {
+    await insertMeetup(req.body)
+    res.status(201).json(db.data)
+  } else {
+    res.status(200).json(db.data)
+  }
 }
