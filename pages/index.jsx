@@ -1,7 +1,7 @@
 import React from 'react'
 
-import MeetupCard from '../components/card'
-import styles from '../styles/home.module.css'
+import MeetupCard from '../src/components/card'
+import styles from '../src/styles/home.module.css'
 
 const dummies = [
   {

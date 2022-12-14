@@ -1,9 +1,19 @@
 import React from 'react'
-import MeetupForm from '../components/meetup-form'
+import { addDoc, collection } from 'firebase/firestore'
+
+import MeetupForm from '../src/components/meetup-form'
+import { database } from '../src/service/firebase'
 
 const NewMeetupPage = () => {
-  const onSubmit = meetupData => {
-    console.log(meetupData)
+  const onSubmit = async meetupData => {
+    try {
+      const meetupsCollection = collection(database, 'meetups')
+      await addDoc(meetupsCollection, meetupData)
+      alert('Data berhasil ditambahakan')
+    } catch (error) {
+      alert('Sepertinya terjadi kesalahan')
+      console.error(error)
+    }
   }
 
   return (
