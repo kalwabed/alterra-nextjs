@@ -1,29 +1,23 @@
-import React from 'react'
+import * as React from 'react'
+import { getDocs, collection } from 'firebase/firestore'
 
 import MeetupCard from '../src/components/card'
 import styles from '../src/styles/home.module.css'
-
-const dummies = [
-  {
-    id: 'x1',
-    title: 'Dummy 1',
-    description: 'Dummy 1 description',
-    address: 'Dummy 1 address',
-    imageUrl: 'https://picsum.photos/seed/city/1000/300'
-  },
-  {
-    id: 'x2',
-    title: 'Dummy 2',
-    description: 'Dummy 2 description',
-    address: 'Dummy 2 address',
-    imageUrl: 'https://picsum.photos/seed/city/1000/300'
-  }
-]
+import { database } from '../src/service/firebase'
 
 const HomePage = () => {
+  const [meetups, setMeetups] = React.useState([])
+
+  React.useEffect(() => {
+    const meetupsCollection = collection(database, 'meetups')
+    getDocs(meetupsCollection).then(data => {
+      setMeetups(() => data.docs.map(item => ({ ...item.data(), id: item.id })))
+    })
+  }, [])
+
   return (
     <div className={styles.wrapper}>
-      {dummies.map(dummy => (
+      {meetups?.map(dummy => (
         <MeetupCard key={dummy.id} {...dummy} />
       ))}
     </div>
