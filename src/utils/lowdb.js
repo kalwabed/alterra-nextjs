@@ -1,5 +1,4 @@
 import { join, dirname, resolve } from 'node:path'
-import { fileURLToPath } from 'node:url'
 import { randomBytes } from 'node:crypto'
 import { Low, JSONFile } from 'lowdb'
 
