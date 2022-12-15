@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import React from 'react'
 import MeetupForm from '../components/meetup-form'
 
@@ -15,9 +16,13 @@ const NewMeetupPage = () => {
   }
 
   return (
-    <div>
+    <>
+      <Head>
+        <title>Meetup Baru | My Meetup</title>
+        <meta name="description" content="Website My Meetup" />
+      </Head>
       <MeetupForm onAddMeetup={onSubmit} />
-    </div>
+    </>
   )
 }
 

@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import MeetupDetail from '../components/meetup-detail'
 
 export const getServerSideProps = async req => {
@@ -14,7 +15,15 @@ export const getServerSideProps = async req => {
 }
 
 const MeetupDetailPage = props => {
-  return <MeetupDetail {...props.meetup} />
+  return (
+    <>
+      <Head>
+        <title>{props.meetup.title} | My Meetup</title>
+        <meta name="description" content="Website My Meetup" />
+      </Head>
+      <MeetupDetail {...props.meetup} />
+    </>
+  )
 }
 
 export default MeetupDetailPage

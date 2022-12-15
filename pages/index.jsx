@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import React from 'react'
 
 import MeetupCard from '../components/card'
@@ -17,6 +18,11 @@ export const getServerSideProps = async () => {
 const HomePage = ({ meetups }) => {
   return (
     <div className={styles.wrapper}>
+      <Head>
+        <title>Home | My Meetup</title>
+        <meta name="description" content="Website My Meetup" />
+      </Head>
+
       {meetups.map(meetup => (
         <MeetupCard key={meetup.id} {...meetup} />
       ))}
