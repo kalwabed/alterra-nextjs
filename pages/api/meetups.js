@@ -20,19 +20,36 @@ async function insertMeetup(meetupData) {
 
 export default async function handler(req, res) {
   await db.read()
-  if (req.method === 'POST') {
-    await insertMeetup(req.body)
-    res.status(201).json(db.data)
-  } else {
-    // find by id
-    if (req.query.id) {
-      const meetup = db.data.meetups.find(meetup => {
-        return meetup.id === req.query.id
-      })
-      return res.status(200).json(meetup)
-    }
 
-    // find all
-    res.status(200).json(db.data)
+  switch (req.method) {
+    case 'POST':
+      await insertMeetup(req.body)
+      res.status(201).json(db.data)
+      break
+
+    case 'GET':
+      // find by id
+      if (req.query.id) {
+        const meetup = db.data.meetups.find(meetup => {
+          return meetup.id === req.query.id
+        })
+        return res.status(200).json(meetup)
+      }
+
+      // find all
+      res.status(200).json(db.data)
+      break
+
+    case 'DELETE':
+      const id = req.query.id
+      db.data.meetups = db.data.meetups.filter(meetup => meetup.id !== id)
+      await db.write()
+
+      res.status(204).json(db.data.meetups)
+      break
+
+    default:
+      res.status(200).json(db.data)
+      break
   }
 }

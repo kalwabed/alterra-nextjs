@@ -1,7 +1,18 @@
+import { useRouter } from 'next/router'
 import styles from './meetup-detail.module.css'
 
 const MeetupDetail = props => {
-  const { title, imageUrl, description, address } = props
+  const { id, title, imageUrl, description, address } = props
+  const router = useRouter()
+
+  const handleOnDelete = async () => {
+    await fetch(`/api/meetups?id=${id}`, {
+      method: 'delete'
+    })
+
+    alert('Acara berhasil dihapus!')
+    router.push('/')
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -13,7 +24,9 @@ const MeetupDetail = props => {
         <p>"{description}"</p>
       </section>
 
-      <button>Hapus</button>
+      <button className={styles.btnDelete} onClick={handleOnDelete}>
+        Hapus
+      </button>
     </div>
   )
 }

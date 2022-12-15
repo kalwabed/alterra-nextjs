@@ -15,3 +15,18 @@
   font-size: 2.5rem;
   font-weight: bold;
 }
+
+.btnDelete {
+  border: 1px solid rgb(212, 45, 45);
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  color: red;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btnDelete:hover {
+  background-color: rgb(158, 20, 20);
+  color: white;
+}

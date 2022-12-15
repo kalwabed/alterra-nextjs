@@ -1,16 +1,23 @@
 {
   "meetups": [
     {
-      "id": "o9oW_PdnyQ",
-      "title": "Meetup Komunitas Web Developer",
-      "imageUrl": "https://picsum.photos/seed/home/1000/500",
-      "address": "Ruang Rapat CyberOne, Jalan Semanggi No. 12, Jakarta Selatan",
-      "description": "Bertemu dan berkolaborasi dengan web developer lokal dalam acara ini. Dibawakan oleh para pakar di bidang pengembangan web, acara ini akan mencakup topik-topik seperti HTML, CSS, JavaScript, dan React."
-    },
-    {
       "id": "KJv29kNk2w",
       "title": "Meetup Ruby on Rails Jakarta",
-      "imageUrl": "https://picsum.photos/seed/homes/1000/500",
+      "imageUrl": "https://picsum.photos/seed/homes/1024/800",
+      "address": "Ruang Conference, Gedung A, Lantai 3, Jalan Jendral Sudirman, Jakarta",
+      "description": "Kumpul-kumpul bersama para developer Ruby on Rails di Jakarta untuk berbagi tips, trik, dan pengalaman dalam mengembangkan aplikasi web menggunakan framework Ruby on Rails"
+    },
+    {
+      "id": "KJvNksw",
+      "title": "Meetup Javascript Jakarta",
+      "imageUrl": "https://picsum.photos/seed/node/1024/800",
+      "address": "Ruang Conference, Gedung A, Lantai 3, Jalan Jendral Sudirman, Jakarta",
+      "description": "Kumpul-kumpul bersama para developer Ruby on Rails di Jakarta untuk berbagi tips, trik, dan pengalaman dalam mengembangkan aplikasi web menggunakan framework Ruby on Rails"
+    },
+    {
+      "id": "ww122Nk2w",
+      "title": "Meetup PHP Jakarta",
+      "imageUrl": "https://picsum.photos/seed/php/1024/800",
       "address": "Ruang Conference, Gedung A, Lantai 3, Jalan Jendral Sudirman, Jakarta",
       "description": "Kumpul-kumpul bersama para developer Ruby on Rails di Jakarta untuk berbagi tips, trik, dan pengalaman dalam mengembangkan aplikasi web menggunakan framework Ruby on Rails"
     }
