@@ -4,12 +4,19 @@ import MeetupDetail from '../components/meetup-detail'
 export const getServerSideProps = async req => {
   const meetupId = req.query.meetupId
 
-  const res = await fetch(`http://localhost:3000/api/meetups?id=${meetupId}`)
-  const meetup = await res.json()
+  try {
+    const response = await fetch(`${process.env.URL}/api/meetups?id=${meetupId}`)
+    const meetup = await response.json()
+    return {
+      props: {
+        meetup
+      }
+    }
+  } catch (error) {
+    console.error(error)
 
-  return {
-    props: {
-      meetup
+    return {
+      notFound: true
     }
   }
 }
