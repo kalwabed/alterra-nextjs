@@ -5,7 +5,7 @@ export const getServerSideProps = async req => {
   const meetupId = req.query.meetupId
 
   try {
-    const response = await fetch(`${process.env.URL}/api/meetups?id=${meetupId}`)
+    const response = await fetch(`${process.env.VERCEL_URL}/api/meetups?id=${meetupId}`)
     const meetup = await response.json()
     return {
       props: {

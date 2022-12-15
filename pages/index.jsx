@@ -5,7 +5,7 @@ import MeetupCard from '../components/card'
 import styles from '../styles/home.module.css'
 
 export const getServerSideProps = async () => {
-  const response = await fetch(`${process.env.URL}/api/meetups`)
+  const response = await fetch(`${process.env.VERCEL_URL}/api/meetups`)
   const data = await response.json()
 
   return {
