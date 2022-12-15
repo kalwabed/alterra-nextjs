@@ -24,6 +24,15 @@ export default async function handler(req, res) {
     await insertMeetup(req.body)
     res.status(201).json(db.data)
   } else {
+    // find by id
+    if (req.query.id) {
+      const meetup = db.data.meetups.find(meetup => {
+        return meetup.id === req.query.id
+      })
+      return res.status(200).json(meetup)
+    }
+
+    // find all
     res.status(200).json(db.data)
   }
 }
