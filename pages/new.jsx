@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import React from 'react'
-import MeetupForm from '../components/meetup-form'
+import MeetupForm from '../src/components/meetup-form'
 
 const NewMeetupPage = () => {
   const onSubmit = async meetupData => {

@@ -1,22 +1,24 @@
 import Head from 'next/head'
-import MeetupDetail from '../components/meetup-detail'
+import MeetupDetail from '../src/components/meetup-detail'
+import { db } from '../src/utils/lowdb'
 
 export const getServerSideProps = async req => {
   const meetupId = req.query.meetupId
 
-  try {
-    const response = await fetch(`${process.env.VERCEL_URL}/api/meetups?id=${meetupId}`)
-    const meetup = await response.json()
-    return {
-      props: {
-        meetup
-      }
-    }
-  } catch (error) {
-    console.error(error)
+  await db.read()
+  const meetup = db.data.meetups.find(meet => {
+    return meet.id === meetupId
+  })
 
+  if (!meetup) {
     return {
       notFound: true
+    }
+  }
+
+  return {
+    props: {
+      meetup
     }
   }
 }

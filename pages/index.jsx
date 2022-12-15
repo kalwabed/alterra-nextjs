@@ -1,16 +1,17 @@
 import Head from 'next/head'
 import React from 'react'
 
-import MeetupCard from '../components/card'
-import styles from '../styles/home.module.css'
+import MeetupCard from '../src/components/card'
+import styles from '../src/styles/home.module.css'
+import { db } from '../src/utils/lowdb'
 
 export const getServerSideProps = async () => {
-  const response = await fetch(`${process.env.VERCEL_URL}/api/meetups`)
-  const data = await response.json()
+  await db.read()
+  const meetups = db.data.meetups ?? []
 
   return {
     props: {
-      meetups: data.meetups ?? []
+      meetups: meetups
     }
   }
 }
