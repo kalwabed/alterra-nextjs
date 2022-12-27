@@ -10,19 +10,21 @@ const fetcher = async url => {
 }
 
 const WithSwrPage = () => {
-  const { data } = useSwr('https://jsonplaceholder.typicode.com/users', fetcher)
+  const { data, isLoading } = useSwr('https://jsonplaceholder.typicode.com/users', fetcher)
+
+  if (isLoading) return <div>Loading...</div>
+  if (!data) return <p>No profile data</p>
 
   return (
     <div className={styles.container}>
       <h1>With SWR</h1>
       <Link href="/">Dengan useEffect</Link>
       <div className={styles.grid}>
-        {data &&
-          data.map(user => (
-            <div key={user.id} className={styles.card}>
-              <p className={styles.title}>{user.name}</p>
-            </div>
-          ))}
+        {data.map(user => (
+          <div key={user.id} className={styles.card}>
+            <p className={styles.title}>{user.name}</p>
+          </div>
+        ))}
       </div>
     </div>
   )
