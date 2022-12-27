@@ -10,6 +10,8 @@ const fetcher = async url => {
 }
 
 const WithSwrPage = () => {
+  // loading dan error di handle oleh useSwr.
+  // data akan diisi dengan hasil fetch jika berhasil.
   const { data, isLoading } = useSwr('https://jsonplaceholder.typicode.com/users', fetcher)
 
   if (isLoading) return <div>Loading...</div>

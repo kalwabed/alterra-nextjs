@@ -18,7 +18,9 @@ export default function Home() {
       })
   }, [])
 
+  // handle ketika loading
   if (isLoading) return <p>Loading...</p>
+  // handle ketika data kosong
   if (!data) return <p>No profile data</p>
 
   return (
