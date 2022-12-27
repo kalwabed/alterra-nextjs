@@ -5,9 +5,12 @@ import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 
 export const getServerSideProps = async () => {
+  // kode ini akan dijalankan di server
+  // dan berjalan setiap kali halaman diakses
   const res = await fetch('https://jsonplaceholder.typicode.com/users')
   const users = await res.json()
 
+  // mengembalikan props untuk diolah oleh komponen
   return {
     props: { users }
   }

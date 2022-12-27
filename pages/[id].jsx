@@ -4,6 +4,9 @@ import React from 'react'
 import styles from '../styles/Home.module.css'
 
 export const getServerSideProps = async props => {
+  // ambil id dari query string
+  // misalnya: /1, /2, /3, dst
+  // sedikit berbeda dengan SSG
   const { id } = props.query
 
   const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
