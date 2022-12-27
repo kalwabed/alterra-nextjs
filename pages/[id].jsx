@@ -7,6 +7,8 @@ export const getStaticPaths = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/users')
   const data = await res.json()
 
+  // men-generate path untuk setiap user berdasarkan id
+  // contoh: /1, /2, /3, dst
   const paths = data.map(user => {
     return {
       params: { id: user.id.toString() }
@@ -15,13 +17,14 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false
+    fallback: false // false: jika path tidak ada, maka akan menampilkan 404
   }
 }
 
 export const getStaticProps = async props => {
-  const { id } = props.params
+  const { id } = props.params // id didapat dari getStaticPaths
 
+  // mengambil data user berdasarkan id
   const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
   const data = await res.json()
 

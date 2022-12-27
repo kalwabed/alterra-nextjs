@@ -5,9 +5,11 @@ import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 
 export const getStaticProps = async () => {
+  // kode didalam getStaticProps akan dijalankan di server/Node.js
   const res = await fetch('https://jsonplaceholder.typicode.com/users')
   const users = await res.json()
 
+  // props yang akan di-pass ke komponen
   return {
     props: { users }
   }
