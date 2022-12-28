@@ -6,6 +6,8 @@ const MeetupDetail = props => {
   const router = useRouter()
 
   const handleOnDelete = async () => {
+    // request ke API dengan method delete
+    // dan mengirimkan id meetup yang akan dihapus
     await fetch(`/api/meetups?id=${id}`, {
       method: 'delete'
     })

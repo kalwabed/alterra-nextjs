@@ -6,7 +6,9 @@ import styles from '../src/styles/home.module.css'
 import { db } from '../src/utils/lowdb'
 
 export const getServerSideProps = async () => {
-  await db.read()
+  await db.read() // membaca data dari file db.json
+
+  // jika data meetups tidak ada, maka akan diisi dengan array kosong
   const meetups = db.data.meetups ?? []
 
   return {
@@ -20,6 +22,7 @@ const HomePage = ({ meetups }) => {
   return (
     <div className={styles.wrapper}>
       <Head>
+        {/* <Head> adalah cara Next.js akses tag <head> di HTML */}
         <title>Home | My Meetup</title>
         <meta name="description" content="Website My Meetup" />
       </Head>
